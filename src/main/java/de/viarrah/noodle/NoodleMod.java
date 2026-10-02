@@ -21,7 +21,7 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 public class NoodleMod
 {
     // Define mod id in a common place for everything to reference
-    public static final String MOD_ID = "noodlemods";
+    public static final String MOD_ID = "noodlemod";
     // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
     // The constructor for the mod class is the first code that is run when your mod is loaded.
