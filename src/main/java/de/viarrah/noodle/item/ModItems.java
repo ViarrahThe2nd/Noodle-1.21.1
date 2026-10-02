@@ -11,7 +11,8 @@ public class ModItems {
 
     public static final DeferredItem<Item> NOODLUM = ITEMS.register("noodlum",
             () -> new Item(new Item.Properties()));
-
+    public static final DeferredItem<Item> COOKED_NOODLUM = ITEMS.register("cooked_noodlum",
+            () -> new Item(new Item.Properties()));
 
 
     public static void register(IEventBus noodleEventBus) {

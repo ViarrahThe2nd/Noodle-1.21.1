@@ -52,6 +52,7 @@ public class NoodleMod
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if(event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
             event.accept(ModItems.NOODLUM);
+            event.accept(ModItems.COOKED_NOODLUM);
         }
     }
 
