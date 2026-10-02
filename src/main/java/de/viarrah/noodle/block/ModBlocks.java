@@ -18,7 +18,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> NOODLUM_BOX = registerBlock("noodlum_box",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(4.0F).requiresCorrectToolForDrops().sound(SoundType.ANVIL)));
+                    .strength(4f).requiresCorrectToolForDrops().sound(SoundType.ANVIL)));
 
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {

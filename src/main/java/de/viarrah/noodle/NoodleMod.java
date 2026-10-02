@@ -1,5 +1,6 @@
 package de.viarrah.noodle;
 
+import de.viarrah.noodle.block.ModBlocks;
 import de.viarrah.noodle.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
 import org.slf4j.Logger;
