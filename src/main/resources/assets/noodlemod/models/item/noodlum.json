@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "vi_2nd_noodle:item/noodlum"
+    "layer0": "noodlemod:item/noodlum"
   }
 }
