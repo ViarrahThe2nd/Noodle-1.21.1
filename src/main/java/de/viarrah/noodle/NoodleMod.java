@@ -54,6 +54,10 @@ public class NoodleMod
             event.accept(ModItems.NOODLUM);
             event.accept(ModItems.COOKED_NOODLUM);
         }
+
+        if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+            event.accept(ModBlocks.NOODLUM_BOX);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
