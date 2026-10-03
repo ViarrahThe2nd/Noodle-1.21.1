@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:blasting",
+  "category": "food",
+  "cookingtime": 33,
+  "experience": 0.6,
+  "ingredient": {
+    "item": "noodlemod:deepslate_noodlum_ore"
+  },
+  "result": {
+    "id": "noodlemod:noodlum",
+    "count": 2
+  }
+}

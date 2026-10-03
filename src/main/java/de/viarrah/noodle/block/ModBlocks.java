@@ -26,6 +26,14 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.of()
                     .strength(6f).requiresCorrectToolForDrops().sound(SoundType.AMETHYST)));
 
+    public static final DeferredBlock<Block> NOODLUM_ORE = registerBlock("noodlum_ore",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(1f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+
+    public static final DeferredBlock<Block> DEEPSLATE_NOODLUM_ORE = registerBlock("deepslate_noodlum_ore",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(1f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
+
     // END OF REGISTERING
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {

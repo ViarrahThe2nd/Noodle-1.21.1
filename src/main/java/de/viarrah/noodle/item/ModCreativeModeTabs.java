@@ -40,6 +40,8 @@ public class ModCreativeModeTabs {
                         // ITEMS ADDED HERE
                         output.accept(ModBlocks.NOODLUM_BLOCK);
                         output.accept(ModBlocks.NOODLUM_BOX);
+                        output.accept(ModBlocks.NOODLUM_ORE);
+                        output.accept(ModBlocks.DEEPSLATE_NOODLUM_ORE);
 
                     })
                     .build());

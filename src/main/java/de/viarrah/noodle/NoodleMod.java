@@ -56,13 +56,13 @@ public class NoodleMod
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if(event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
-            event.accept(ModItems.NOODLUM);
-            event.accept(ModItems.COOKED_NOODLUM);
+            //event.accept(ModItems.NOODLUM);
+            //event.accept(ModItems.COOKED_NOODLUM);
         }
 
         if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-            event.accept(ModBlocks.NOODLUM_BOX);
-            event.accept(ModBlocks.NOODLUM_BLOCK);
+            //event.accept(ModBlocks.NOODLUM_BOX);
+            //event.accept(ModBlocks.NOODLUM_BLOCK);
         }
     }
 

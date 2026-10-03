@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 67,
+  "experience": 0.6,
+  "ingredient": {
+    "item": "noodlemod:noodlum_ore"
+  },
+  "result": {
+    "id": "noodlemod:noodlum",
+    "count": 2
+  }
+}
