@@ -16,10 +16,17 @@ import java.util.function.Supplier;
 public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(NoodleMod.MOD_ID);
 
+    // REGISTER BLOCKS HERE
+
     public static final DeferredBlock<Block> NOODLUM_BOX = registerBlock("noodlum_box",
             () -> new Block(BlockBehaviour.Properties.of()
                     .strength(4f).requiresCorrectToolForDrops().sound(SoundType.ANVIL)));
 
+    public static final DeferredBlock<Block> NOODLUM_BLOCK = registerBlock("noodlum_block",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(6f).requiresCorrectToolForDrops().sound(SoundType.AMETHYST)));
+
+    // END OF REGISTERING
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
