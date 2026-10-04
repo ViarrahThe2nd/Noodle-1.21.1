@@ -1,8 +1,13 @@
 {
   "item.noodlemod.noodlum": "Noodlum'd",
+  "tooltip.noodlemod.noodlum": "Yum",
+
   "item.noodlemod.cooked_noodlum": "Noodlum'dAAHHH",
 
   "item.noodlemod.chisel": "Le'Chisle",
+
+  "item.noodlemod.magic_fuel": "Magic Fuel",
+  "item.noodlemod.magic_ashes": "Magic Ashes",
 
   "block.noodlemod.noodlum_box": "Buck'a Noodlum'd",
   "block.noodlemod.noodlum_block": "Block'a Noodlum'd",
@@ -12,5 +17,10 @@
   "block.noodlemod.magic_block": "Magic Block",
 
   "creativetab.noodlemod.noodles_items": "Noodle Items",
-  "creativetab.noodlemod.noodles_blocks": "Noodle Blocks"
+  "creativetab.noodlemod.noodles_blocks": "Noodle Blocks",
+
+ "tooltip.noodlemod.magic_block.tooltip": "Something might turn to §bDiamonds...",
+
+  "tooltip.noodlemod.chisel.shift_down": "May turn some blocks into others",
+  "tooltip.noodlemod.chisel": "§8Hold shift for more info"
 }

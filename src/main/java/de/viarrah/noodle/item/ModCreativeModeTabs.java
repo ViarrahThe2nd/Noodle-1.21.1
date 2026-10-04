@@ -29,6 +29,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.COOKED_NOODLUM);
 
                         output.accept(ModItems.CHISEL);
+                        output.accept(ModItems.MAGIC_FUEL);
+                        output.accept(ModItems.MAGIC_ASHES);
 
                     })
                     .build());
