@@ -2,6 +2,7 @@ package de.viarrah.noodle.block;
 
 import com.mojang.blaze3d.shaders.Uniform;
 import de.viarrah.noodle.NoodleMod;
+import de.viarrah.noodle.block.custom.MagicBlock;
 import de.viarrah.noodle.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
@@ -36,6 +37,9 @@ public class ModBlocks {
     public static final DeferredBlock<Block> DEEPSLATE_NOODLUM_ORE = registerBlock("deepslate_noodlum_ore",
             () -> new DropExperienceBlock(UniformInt.of(4, 6),
                     BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
+
+    public static final DeferredBlock<Block> MAGIC_BLOCK = registerBlock("magic_block",
+            () -> new MagicBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
 
     // END OF REGISTERING
 

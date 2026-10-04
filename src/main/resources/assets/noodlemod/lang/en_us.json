@@ -2,10 +2,14 @@
   "item.noodlemod.noodlum": "Noodlum'd",
   "item.noodlemod.cooked_noodlum": "Noodlum'dAAHHH",
 
+  "item.noodlemod.chisel": "Le'Chisle",
+
   "block.noodlemod.noodlum_box": "Buck'a Noodlum'd",
   "block.noodlemod.noodlum_block": "Block'a Noodlum'd",
   "block.noodlemod.noodlum_ore": "Ore'a Noodlum'd",
   "block.noodlemod.deepslate_noodlum_ore": "D'Ore'a Noodlum'd",
+
+  "block.noodlemod.magic_block": "Magic Block",
 
   "creativetab.noodlemod.noodles_items": "Noodle Items",
   "creativetab.noodlemod.noodles_blocks": "Noodle Blocks"

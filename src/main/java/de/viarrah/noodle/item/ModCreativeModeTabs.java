@@ -28,6 +28,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.NOODLUM);
                         output.accept(ModItems.COOKED_NOODLUM);
 
+                        output.accept(ModItems.CHISEL);
+
                     })
                     .build());
 
@@ -42,6 +44,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.NOODLUM_BOX);
                         output.accept(ModBlocks.NOODLUM_ORE);
                         output.accept(ModBlocks.DEEPSLATE_NOODLUM_ORE);
+
+                        output.accept(ModBlocks.MAGIC_BLOCK);
 
                     })
                     .build());

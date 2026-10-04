@@ -1,6 +1,7 @@
 package de.viarrah.noodle.item;
 
 import de.viarrah.noodle.NoodleMod;
+import de.viarrah.noodle.item.custom.ChiselItem;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -14,6 +15,8 @@ public class ModItems {
     public static final DeferredItem<Item> COOKED_NOODLUM = ITEMS.register("cooked_noodlum",
             () -> new Item(new Item.Properties()));
 
+    public static final DeferredItem<Item> CHISEL = ITEMS.register("chisel",
+            () -> new ChiselItem(new Item.Properties().durability(438)));
 
     public static void register(IEventBus noodleEventBus) {
         ITEMS.register(noodleEventBus);
