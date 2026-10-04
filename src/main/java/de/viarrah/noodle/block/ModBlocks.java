@@ -39,7 +39,7 @@ public class ModBlocks {
                     BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
 
     public static final DeferredBlock<Block> MAGIC_BLOCK = registerBlock("magic_block",
-            () -> new MagicBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
+            () -> new MagicBlock(BlockBehaviour.Properties.of().strength(2f).noLootTable().sound(SoundType.METAL)));
 
     // END OF REGISTERING
 

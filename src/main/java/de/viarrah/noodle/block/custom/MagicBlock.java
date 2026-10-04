@@ -1,6 +1,7 @@
 package de.viarrah.noodle.block.custom;
 
 import de.viarrah.noodle.item.ModItems;
+import de.viarrah.noodle.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
@@ -40,13 +41,22 @@ public class MagicBlock extends DropExperienceBlock {
     public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
 
         if(entity instanceof ItemEntity itemEntity) {
+
             if(itemEntity.getItem().getItem() == ModItems.NOODLUM.get()) {
+                itemEntity.setItem(new ItemStack(Items.DIAMOND, itemEntity.getItem().getCount()));
+            }
+
+            if(isValidItem(itemEntity.getItem())) {
                 itemEntity.setItem(new ItemStack(Items.DIAMOND, itemEntity.getItem().getCount()));
             }
 
         }
 
         super.stepOn(level, pos, state, entity);
+    }
+
+    private boolean isValidItem(ItemStack item) {
+        return item.is(ModTags.Items.TRANSFORMABLE_ITEMS);
     }
 
     @Override
