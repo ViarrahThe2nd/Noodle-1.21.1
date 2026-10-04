@@ -40,10 +40,23 @@ public class ModItems {
     public static final DeferredItem<Item> MAGIC_FUEL = ITEMS.register("magic_fuel",
             () -> new FuelItem(new Item.Properties(), 1200));
 
-
-    // fuel register under resources/data/neoforge/data_maps/item/furnace_fuels
     public static final DeferredItem<Item> MAGIC_ASHES = ITEMS.register("magic_ashes",
-            () -> new Item(new Item.Properties()));
+            () -> new FuelItem(new Item.Properties(), 840));
+    // fuel register under resources/data/neoforge/data_maps/item/furnace_fuels (old), no longer
+
+    /* WAS:
+
+{
+  "values": {
+    "noodlemod:magic_ashes": {
+      "burn_time": 840
+    }
+  }
+}
+
+     */
+
+
 
 
 
