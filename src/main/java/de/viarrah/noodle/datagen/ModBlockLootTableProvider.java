@@ -39,6 +39,19 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
         add(ModBlocks.DEEPSLATE_NOODLUM_ORE.get(),
                 block -> createMultipleOreDrops(ModBlocks.DEEPSLATE_NOODLUM_ORE.get(), ModItems.NOODLUM.get(), 3, 6));
+
+        // Noodlum family
+        dropSelf(ModBlocks.NOODLUM_STAIRS.get());
+        add(ModBlocks.NOODLUM_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.NOODLUM_SLAB.get()));
+        dropSelf(ModBlocks.NOODLUM_PRESSURE_PLATE.get());
+        dropSelf(ModBlocks.NOODLUM_BUTTON.get());
+        dropSelf(ModBlocks.NOODLUM_FENCE.get());
+        dropSelf(ModBlocks.NOODLUM_FENCE_GATE.get());
+        dropSelf(ModBlocks.NOODLUM_WALL.get());
+        dropSelf(ModBlocks.NOODLUM_TRAPDOOR.get());
+        add(ModBlocks.NOODLUM_DOOR.get(),
+                block -> createDoorTable(ModBlocks.NOODLUM_DOOR.get()));
     }
 
     // Multiple Ore Drops                               ST Drop         ItemDrop    Min             Max

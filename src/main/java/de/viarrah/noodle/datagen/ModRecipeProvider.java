@@ -29,6 +29,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         List<ItemLike> COOKED_NOODLUM_SMELTABLES = List.of(
                 ModItems.NOODLUM);
 
+        // Shaped, used for most things
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.CHISEL.get())
                 .pattern("  B")
                 .pattern(" A ")
@@ -63,6 +64,25 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         oreCooking(recipeOutput, RecipeSerializer.SMOKING_RECIPE, SmokingRecipe::new, COOKED_NOODLUM_SMELTABLES, RecipeCategory.MISC, ModItems.COOKED_NOODLUM.get(),
                 0.25f, 33, "cooked_noodlum", "_from_smoking");
 
+        // Noodlum family, vanilla recipe BUILDERS (there are more unused, just search Builder)
+        stairBuilder(ModBlocks.NOODLUM_STAIRS.get(), Ingredient.of(ModBlocks.NOODLUM_BLOCK.get())).group("noodlum")
+                .unlockedBy("has_noodlum_block", has(ModBlocks.NOODLUM_BLOCK.get())).save(recipeOutput);
+        slab(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.NOODLUM_SLAB.get(), ModBlocks.NOODLUM_BLOCK.get());
+
+        buttonBuilder(ModBlocks.NOODLUM_BUTTON.get(), Ingredient.of(ModBlocks.NOODLUM_BLOCK.get())).group("noodlum")
+                .unlockedBy("has_noodlum_block", has(ModBlocks.NOODLUM_BLOCK.get())).save(recipeOutput);
+        pressurePlate(recipeOutput, ModBlocks.NOODLUM_PRESSURE_PLATE.get(), ModBlocks.NOODLUM_BLOCK.get());
+
+        fenceBuilder(ModBlocks.NOODLUM_FENCE.get(), Ingredient.of(ModBlocks.NOODLUM_BLOCK.get())).group("noodlum")
+                .unlockedBy("has_noodlum_block", has(ModBlocks.NOODLUM_BLOCK.get())).save(recipeOutput);
+        fenceGateBuilder(ModBlocks.NOODLUM_FENCE_GATE.get(), Ingredient.of(ModBlocks.NOODLUM_BLOCK.get())).group("noodlum")
+                .unlockedBy("has_noodlum_block", has(ModBlocks.NOODLUM_BLOCK.get())).save(recipeOutput);
+        wall(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.NOODLUM_WALL, ModBlocks.NOODLUM_BLOCK);
+
+        doorBuilder(ModBlocks.NOODLUM_DOOR.get(), Ingredient.of(ModBlocks.NOODLUM_BLOCK.get())).group("noodlum")
+                .unlockedBy("has_noodlum_block", has(ModBlocks.NOODLUM_BLOCK.get())).save(recipeOutput);
+        trapdoorBuilder(ModBlocks.NOODLUM_TRAPDOOR.get(), Ingredient.of(ModBlocks.NOODLUM_BLOCK.get())).group("noodlum")
+                .unlockedBy("has_noodlum_block", has(ModBlocks.NOODLUM_BLOCK.get())).save(recipeOutput);
 
     }
 

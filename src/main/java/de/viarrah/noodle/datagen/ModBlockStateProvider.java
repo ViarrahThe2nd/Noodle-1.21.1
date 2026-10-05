@@ -3,7 +3,9 @@ package de.viarrah.noodle.datagen;
 import de.viarrah.noodle.NoodleMod;
 import de.viarrah.noodle.block.ModBlocks;
 import net.minecraft.data.PackOutput;
+import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
 
@@ -21,9 +23,50 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.DEEPSLATE_NOODLUM_ORE);
 
         blockWithItem(ModBlocks.MAGIC_BLOCK);
+
+        // Noodlum family -----------------------------------------------------------------
+        stairsBlock(ModBlocks.NOODLUM_STAIRS.get(),
+                blockTexture(ModBlocks.NOODLUM_BLOCK.get()));
+        blockItem(ModBlocks.NOODLUM_STAIRS); // no .get() (its in the method blockItem)
+
+        slabBlock(ModBlocks.NOODLUM_SLAB.get(),
+                blockTexture(ModBlocks.NOODLUM_BLOCK.get()), blockTexture(ModBlocks.NOODLUM_BLOCK.get()));
+        blockItem(ModBlocks.NOODLUM_SLAB);
+
+        buttonBlock(ModBlocks.NOODLUM_BUTTON.get(),
+                blockTexture(ModBlocks.NOODLUM_BLOCK.get()));
+
+        pressurePlateBlock(ModBlocks.NOODLUM_PRESSURE_PLATE.get(),
+                blockTexture(ModBlocks.NOODLUM_BLOCK.get()));
+        blockItem(ModBlocks.NOODLUM_PRESSURE_PLATE);
+
+        wallBlock(ModBlocks.NOODLUM_WALL.get(),
+                blockTexture(ModBlocks.NOODLUM_BLOCK.get()));
+
+        fenceBlock(ModBlocks.NOODLUM_FENCE.get(),
+                blockTexture(ModBlocks.NOODLUM_BLOCK.get()));
+
+        fenceGateBlock(ModBlocks.NOODLUM_FENCE_GATE.get(),
+                blockTexture(ModBlocks.NOODLUM_BLOCK.get()));
+        blockItem(ModBlocks.NOODLUM_FENCE_GATE);
+
+        doorBlockWithRenderType(ModBlocks.NOODLUM_DOOR.get(), modLoc("block/noodlum_door_bottom"), modLoc("block/noodlum_door_top"), "cutout");
+
+        trapdoorBlockWithRenderType(ModBlocks.NOODLUM_TRAPDOOR.get(),
+                modLoc("block/noodlum_trapdoor"), true, "cutout");
+        blockItem(ModBlocks.NOODLUM_TRAPDOOR, "_bottom");
+        //------------------------------------------------------------------------------------
     }
 
     private void blockWithItem(DeferredBlock<?> deferredBlock) {
         simpleBlockWithItem(deferredBlock.get(), cubeAll(deferredBlock.get()));
+    }
+
+    private void blockItem(DeferredBlock<?> deferredBlock) {
+        simpleBlockItem(deferredBlock.get(), new ModelFile.UncheckedModelFile("noodlemod:block/" + deferredBlock.getId().getPath()));
+    }
+
+    private void blockItem(DeferredBlock<?> deferredBlock, String appendix) {
+        simpleBlockItem(deferredBlock.get(), new ModelFile.UncheckedModelFile("noodlemod:block/" + deferredBlock.getId().getPath() + appendix));
     }
 }

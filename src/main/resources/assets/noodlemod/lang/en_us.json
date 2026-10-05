@@ -10,9 +10,21 @@
   "item.noodlemod.magic_ashes": "Magic Ashes",
 
   "block.noodlemod.noodlum_box": "Buck'a Noodlum'd",
-  "block.noodlemod.noodlum_block": "Block'a Noodlum'd",
   "block.noodlemod.noodlum_ore": "Ore'a Noodlum'd",
   "block.noodlemod.deepslate_noodlum_ore": "D'Ore'a Noodlum'd",
+
+
+  "block.noodlemod.noodlum_block": "Block'a Noodlum'd",
+  "block.noodlemod.noodlum_slab": "Noodlum Slab",
+  "block.noodlemod.noodlum_stairs": "Noodlum Stairs",
+  "block.noodlemod.noodlum_door": "Noodlum Door",
+  "block.noodlemod.noodlum_trapdoor": "Noodlum Trapdoor",
+  "block.noodlemod.noodlum_fence": "Noodlum Fence",
+  "block.noodlemod.noodlum_fence_gate": "Noodlum Fence Gate",
+  "block.noodlemod.noodlum_wall": "Noodlum Wall",
+  "block.noodlemod.noodlum_button": "Noodlum Button",
+  "block.noodlemod.noodlum_pressure_plate": "Noodlum Pressure Plate",
+
 
   "block.noodlemod.magic_block": "Magic Block",
 
