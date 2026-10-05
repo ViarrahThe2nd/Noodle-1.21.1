@@ -42,12 +42,23 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativetab.noodlemod.noodles_blocks"))
                     .displayItems((itemDisplayParameters, output) -> {
                         // ITEMS ADDED HERE
-                        output.accept(ModBlocks.NOODLUM_BLOCK);
+
                         output.accept(ModBlocks.NOODLUM_BOX);
                         output.accept(ModBlocks.NOODLUM_ORE);
                         output.accept(ModBlocks.DEEPSLATE_NOODLUM_ORE);
 
                         output.accept(ModBlocks.MAGIC_BLOCK);
+
+                        output.accept(ModBlocks.NOODLUM_BLOCK);
+                        output.accept(ModBlocks.NOODLUM_BUTTON);
+                        output.accept(ModBlocks.NOODLUM_DOOR);
+                        output.accept(ModBlocks.NOODLUM_FENCE);
+                        output.accept(ModBlocks.NOODLUM_STAIRS);
+                        output.accept(ModBlocks.NOODLUM_FENCE_GATE);
+                        output.accept(ModBlocks.NOODLUM_PRESSURE_PLATE);
+                        output.accept(ModBlocks.NOODLUM_SLAB);
+                        output.accept(ModBlocks.NOODLUM_TRAPDOOR);
+                        output.accept(ModBlocks.NOODLUM_WALL);
 
                     })
                     .build());

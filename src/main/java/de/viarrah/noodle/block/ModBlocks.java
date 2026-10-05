@@ -7,11 +7,12 @@ import de.viarrah.noodle.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.DropExperienceBlock;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.block.state.properties.WoodType;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -26,9 +27,51 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.of()
                     .strength(4f).requiresCorrectToolForDrops().sound(SoundType.ANVIL)));
 
+    // Noodlum family -------------------------------------------------------
+
     public static final DeferredBlock<Block> NOODLUM_BLOCK = registerBlock("noodlum_block",
             () -> new Block(BlockBehaviour.Properties.of()
                     .strength(4f).requiresCorrectToolForDrops().sound(SoundType.AMETHYST)));
+
+    // stairs require defaultblockstate of copied block
+    public static final DeferredBlock<StairBlock> NOODLUM_STAIRS = registerBlock("noodlum_stairs",
+            () -> new StairBlock(ModBlocks.NOODLUM_BLOCK.get().defaultBlockState(),
+                    BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()));
+
+    // slab requires only standard block things
+    public static final DeferredBlock<SlabBlock> NOODLUM_SLAB = registerBlock("noodlum_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()));
+
+    // Pressure plate requires Type (Iron ,Gold, whateva
+    public static final DeferredBlock<PressurePlateBlock> NOODLUM_PRESSURE_PLATE = registerBlock("noodlum_pressure_plate",
+            () -> new PressurePlateBlock(BlockSetType.IRON, BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()));
+
+    // button requires Type, tick presstime and behaviour. Maybe include .noCollission() otherwise it might be weird
+    public static final DeferredBlock<ButtonBlock> NOODLUM_BUTTON = registerBlock("noodlum_button",
+            () -> new ButtonBlock(BlockSetType.IRON, 10, BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops().noCollission()));
+
+    // fence needs only behaviour
+    public static final DeferredBlock<FenceBlock> NOODLUM_FENCE = registerBlock("noodlum_fence",
+            () -> new FenceBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()));
+
+    // Fencegate behaviour and.. woodtype..? for some reason. makes no difference
+    public static final DeferredBlock<FenceGateBlock> NOODLUM_FENCE_GATE = registerBlock("noodlum_fence_gate",
+            () -> new FenceGateBlock(WoodType.OAK, BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()));
+
+    // wall only behaviour
+    public static final DeferredBlock<WallBlock> NOODLUM_WALL = registerBlock("noodlum_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()));
+
+    // type (iron/wood), behaviour. Include no Occlusion to stop occlusion culling because of door
+    public static final DeferredBlock<DoorBlock> NOODLUM_DOOR = registerBlock("noodlum_door",
+            () -> new DoorBlock(BlockSetType.IRON, BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops().noOcclusion()));
+
+    // type (iron/wood, behaviour. Include no Occlusion to stop occlusion culling because of trapdoor
+    public static final DeferredBlock<TrapDoorBlock> NOODLUM_TRAPDOOR = registerBlock("noodlum_trapdoor",
+            () -> new TrapDoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops().noOcclusion()));
+
+    // END OF NOODLUM FAMILY ###########################################################
+
 
     public static final DeferredBlock<Block> NOODLUM_ORE = registerBlock("noodlum_ore",
             () -> new DropExperienceBlock(UniformInt.of(2, 5),
@@ -40,6 +83,8 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> MAGIC_BLOCK = registerBlock("magic_block",
             () -> new MagicBlock(BlockBehaviour.Properties.of().strength(2f).noLootTable().sound(SoundType.METAL)));
+
+
 
     // END OF REGISTERING
 
