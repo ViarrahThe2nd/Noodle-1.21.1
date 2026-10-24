@@ -4,9 +4,7 @@ import de.viarrah.noodle.NoodleMod;
 import de.viarrah.noodle.item.custom.ChiselItem;
 import de.viarrah.noodle.item.custom.FuelItem;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -43,6 +41,9 @@ public class ModItems {
     public static final DeferredItem<Item> MAGIC_ASHES = ITEMS.register("magic_ashes",
             () -> new Item(new Item.Properties()));
     // fuel register for Magic Ashes under datagen/ModDataMapProvider
+
+    public static final DeferredItem<ArmorItem> VISOR = ITEMS.registerItem("visor", p -> new ArmorItem(ArmorMaterials.DIAMOND, ArmorItem.Type.HELMET, p),
+            new Item.Properties().durability(128));
 
 
 

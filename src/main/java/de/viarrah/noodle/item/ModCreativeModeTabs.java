@@ -31,6 +31,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.CHISEL);
                         output.accept(ModItems.MAGIC_FUEL);
                         output.accept(ModItems.MAGIC_ASHES);
+                        output.accept(ModItems.VISOR);
 
                     })
                     .build());

@@ -1,0 +1,10 @@
+{
+  "stages": [
+    {
+      "type": "veil:blit",
+      "shader": "tutorial:grayscale",
+      "in": "minecraft:main",
+      "out": "veil:post"
+    }
+  ]
+}
