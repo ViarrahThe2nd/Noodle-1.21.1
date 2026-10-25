@@ -1,8 +1,10 @@
 package de.viarrah.noodle;
 
 import de.viarrah.noodle.item.ModItems;
+import foundry.veil.api.client.render.VeilRenderSystem;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.tutorial.Tutorial;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -20,9 +22,10 @@ public class ModClient {
         if (Minecraft.getInstance().player != null && event.getSlot() == EquipmentSlot.HEAD && event.getEntity().getUUID().equals(Minecraft.getInstance().player.getUUID())) {
             if (event.getTo().getItem() == ModItems.VISOR.get()) {
                 // add post effect
-
+                VeilRenderSystem.renderer().getPostProcessingManager().add(ResourceLocation.fromNamespaceAndPath("tutorial", "grayscale"));
             } else {
                 // remove post effect
+                VeilRenderSystem.renderer().getPostProcessingManager().remove(ResourceLocation.fromNamespaceAndPath("tutorial", "grayscale"));
             }
         }
     }

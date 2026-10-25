@@ -2,9 +2,12 @@ package de.viarrah.noodle.datagen;
 
 import de.viarrah.noodle.NoodleMod;
 import de.viarrah.noodle.block.ModBlocks;
+import de.viarrah.noodle.block.custom.NoodleLampBlock;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
+import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -56,6 +59,21 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 modLoc("block/noodlum_trapdoor"), true, "cutout");
         blockItem(ModBlocks.NOODLUM_TRAPDOOR, "_bottom");
         //------------------------------------------------------------------------------------
+
+        noodlumLamp();
+    }
+
+
+    private void noodlumLamp() { //this is hardcoded, change for more lamps
+        getVariantBuilder(ModBlocks.NOODLUM_LAMP.get()).forAllStates(blockState -> {
+            if (blockState.getValue(NoodleLampBlock.ACTIVE)) {
+                return new ConfiguredModel[]{new ConfiguredModel(models().cubeAll("noodlum_lamp_on",
+                        ResourceLocation.fromNamespaceAndPath(NoodleMod.MOD_ID, "block/" + "noodlum_lamp_on")))};
+            } else {
+                return new ConfiguredModel[]{new ConfiguredModel(models().cubeAll("noodlum_lamp_off",
+                        ResourceLocation.fromNamespaceAndPath(NoodleMod.MOD_ID, "block/" + "noodlum_lamp_off")))};
+            }
+        });
     }
 
     private void blockWithItem(DeferredBlock<?> deferredBlock) {

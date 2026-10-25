@@ -61,6 +61,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.NOODLUM_TRAPDOOR);
                         output.accept(ModBlocks.NOODLUM_WALL);
 
+                        output.accept(ModBlocks.NOODLUM_LAMP);
+
                     })
                     .build());
 

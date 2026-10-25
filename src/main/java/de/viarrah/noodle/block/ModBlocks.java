@@ -3,6 +3,7 @@ package de.viarrah.noodle.block;
 import com.mojang.blaze3d.shaders.Uniform;
 import de.viarrah.noodle.NoodleMod;
 import de.viarrah.noodle.block.custom.MagicBlock;
+import de.viarrah.noodle.block.custom.NoodleLampBlock;
 import de.viarrah.noodle.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
@@ -71,6 +72,11 @@ public class ModBlocks {
             () -> new TrapDoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops().noOcclusion()));
 
     // END OF NOODLUM FAMILY ###########################################################
+
+    // Noodlum LAMP (toggleable)
+    public static final DeferredBlock<Block> NOODLUM_LAMP = registerBlock("noodlum_lamp",
+            () -> new NoodleLampBlock(BlockBehaviour.Properties.of().strength(2f)
+                    .requiresCorrectToolForDrops().lightLevel(state -> state.getValue(NoodleLampBlock.ACTIVE) ? 15 : 0 )));
 
 
     public static final DeferredBlock<Block> NOODLUM_ORE = registerBlock("noodlum_ore",

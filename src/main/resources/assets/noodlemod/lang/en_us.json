@@ -25,6 +25,8 @@
   "block.noodlemod.noodlum_button": "Noodlum Button",
   "block.noodlemod.noodlum_pressure_plate": "Noodlum Pressure Plate",
 
+  "block.noodlemod.noodlum_lamp": "Noodlum Lamp",
+  "tooltip.noodlemod.noodlum_lamp": "Right click with an empty hand to turn it on",
 
   "block.noodlemod.magic_block": "Magic Block",
 

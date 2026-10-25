@@ -52,6 +52,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.NOODLUM_TRAPDOOR.get());
         add(ModBlocks.NOODLUM_DOOR.get(),
                 block -> createDoorTable(ModBlocks.NOODLUM_DOOR.get()));
+        dropSelf(ModBlocks.NOODLUM_LAMP.get());
     }
 
     // Multiple Ore Drops                               ST Drop         ItemDrop    Min             Max
