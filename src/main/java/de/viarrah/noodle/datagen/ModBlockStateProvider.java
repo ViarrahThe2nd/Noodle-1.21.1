@@ -63,8 +63,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         noodlumLamp();
     }
 
-
-    private void noodlumLamp() { //this is hardcoded, change for more lamps
+    //this is hardcoded, change for more lamps
+    private void noodlumLamp() {
         getVariantBuilder(ModBlocks.NOODLUM_LAMP.get()).forAllStates(blockState -> {
             if (blockState.getValue(NoodleLampBlock.ACTIVE)) {
                 return new ConfiguredModel[]{new ConfiguredModel(models().cubeAll("noodlum_lamp_on",
@@ -74,6 +74,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
                         ResourceLocation.fromNamespaceAndPath(NoodleMod.MOD_ID, "block/" + "noodlum_lamp_off")))};
             }
         });
+        simpleBlockItem(ModBlocks.NOODLUM_LAMP.get(), models().cubeAll("noodlum_lamp_on",
+                ResourceLocation.fromNamespaceAndPath(NoodleMod.MOD_ID, "block/" + "noodlum_lamp_on")));
     }
 
     private void blockWithItem(DeferredBlock<?> deferredBlock) {

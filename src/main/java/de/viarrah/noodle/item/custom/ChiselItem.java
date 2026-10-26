@@ -1,6 +1,7 @@
 package de.viarrah.noodle.item.custom;
 
 import de.viarrah.noodle.block.ModBlocks;
+import de.viarrah.noodle.component.ModDataComponents;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -53,6 +54,8 @@ public class ChiselItem extends Item {
                         item -> context.getPlayer().onEquippedItemBroken(item, EquipmentSlot.MAINHAND));
 
                 level.playSound(null, context.getClickedPos(), SoundEvents.GRINDSTONE_USE, SoundSource.BLOCKS);
+
+                context.getItemInHand().set(ModDataComponents.COORDINATES, context.getClickedPos());
             }
         }
 
@@ -65,6 +68,10 @@ public class ChiselItem extends Item {
             tooltipComponents.add(Component.translatable("tooltip.noodlemod.chisel.shift_down"));
         } else {
             tooltipComponents.add(Component.translatable("tooltip.noodlemod.chisel"));
+        }
+
+        if(stack.get(ModDataComponents.COORDINATES) != null) {
+            tooltipComponents.add(Component.literal("Last Block changed at " + stack.get(ModDataComponents.COORDINATES)));
         }
 
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);

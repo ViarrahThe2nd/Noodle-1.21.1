@@ -1,6 +1,7 @@
 package de.viarrah.noodle;
 
 import de.viarrah.noodle.block.ModBlocks;
+import de.viarrah.noodle.component.ModDataComponents;
 import de.viarrah.noodle.item.ModCreativeModeTabs;
 import de.viarrah.noodle.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -41,6 +42,8 @@ public class NoodleMod
 
         ModItems.register(noodleEventBus);
         ModBlocks.register(noodleEventBus);
+
+        ModDataComponents.register(noodleEventBus);
 
         // Register the item to a creative tab
         noodleEventBus.addListener(this::addCreative);
