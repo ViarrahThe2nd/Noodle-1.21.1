@@ -23,6 +23,16 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.MAGIC_FUEL.get());
         basicItem(ModItems.CHISEL.get());
 
+        // handhelditems
+
+        handheldItem(ModItems.NOODLUM_SWORD.get());
+        handheldItem(ModItems.NOODLUM_PICKAXE.get());
+        handheldItem(ModItems.NOODLUM_AXE.get());
+        handheldItem(ModItems.NOODLUM_SHOVEL.get());
+        handheldItem(ModItems.NOODLUM_HOE.get());
+
+        handheldItem(ModItems.NOODLUM_HAMMER.get());
+
         // Noodlum family, only these 4 because only these aren't cubeAll items, they require specials or textures.
         buttonItem(ModBlocks.NOODLUM_BUTTON, ModBlocks.NOODLUM_BLOCK);
         fenceItem(ModBlocks.NOODLUM_FENCE, ModBlocks.NOODLUM_BLOCK);

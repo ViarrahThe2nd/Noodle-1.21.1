@@ -3,6 +3,8 @@ package de.viarrah.noodle.item;
 import de.viarrah.noodle.NoodleMod;
 import de.viarrah.noodle.item.custom.ChiselItem;
 import de.viarrah.noodle.item.custom.FuelItem;
+import de.viarrah.noodle.item.custom.HammerItem;
+import de.viarrah.noodle.util.ModTags;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
@@ -41,6 +43,27 @@ public class ModItems {
     public static final DeferredItem<Item> MAGIC_ASHES = ITEMS.register("magic_ashes",
             () -> new Item(new Item.Properties()));
     // fuel register for Magic Ashes under datagen/ModDataMapProvider
+
+    // Noodlum Tools
+    public static final DeferredItem<SwordItem> NOODLUM_SWORD = ITEMS.register("noodlum_sword",
+            () -> new SwordItem(ModToolTiers.NOODLUM, new Item.Properties()
+                    .attributes(SwordItem.createAttributes(ModToolTiers.NOODLUM, 5, -2.4f))));
+    public static final DeferredItem<PickaxeItem> NOODLUM_PICKAXE = ITEMS.register("noodlum_pickaxe",
+            () -> new PickaxeItem(ModToolTiers.NOODLUM, new Item.Properties()
+                    .attributes(PickaxeItem.createAttributes(ModToolTiers.NOODLUM, 3.0F, -2.4f))));
+    public static final DeferredItem<AxeItem> NOODLUM_AXE = ITEMS.register("noodlum_axe",
+            () -> new AxeItem(ModToolTiers.NOODLUM, new Item.Properties()
+                    .attributes(AxeItem.createAttributes(ModToolTiers.NOODLUM, 9.0F, -3.6f))));
+    public static final DeferredItem<ShovelItem> NOODLUM_SHOVEL = ITEMS.register("noodlum_shovel",
+            () -> new ShovelItem(ModToolTiers.NOODLUM, new Item.Properties()
+                    .attributes(ShovelItem.createAttributes(ModToolTiers.NOODLUM, 2.0F, -2.2f))));
+    public static final DeferredItem<HoeItem> NOODLUM_HOE = ITEMS.register("noodlum_hoe",
+            () -> new HoeItem(ModToolTiers.NOODLUM, new Item.Properties()
+                    .attributes(HoeItem.createAttributes(ModToolTiers.NOODLUM, 1.0F, -2f))));
+
+    public static final DeferredItem<HammerItem> NOODLUM_HAMMER = ITEMS.register("noodlum_hammer",
+            () -> new HammerItem(ModToolTiers.NOODLUM, new Item.Properties()
+                    .attributes(PickaxeItem.createAttributes(ModToolTiers.NOODLUM, 2.0F, -2.8f))));
 
     public static final DeferredItem<ArmorItem> VISOR = ITEMS.registerItem("visor", p -> new ArmorItem(ArmorMaterials.DIAMOND, ArmorItem.Type.HELMET, p),
             new Item.Properties().durability(128));

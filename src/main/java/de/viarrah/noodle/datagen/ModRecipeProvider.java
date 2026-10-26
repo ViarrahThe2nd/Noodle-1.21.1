@@ -84,6 +84,47 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         trapdoorBuilder(ModBlocks.NOODLUM_TRAPDOOR.get(), Ingredient.of(ModBlocks.NOODLUM_BLOCK.get())).group("noodlum")
                 .unlockedBy("has_noodlum_block", has(ModBlocks.NOODLUM_BLOCK.get())).save(recipeOutput);
 
+        // Noodlum Tools
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.NOODLUM_SWORD.get())
+                .pattern("  A")
+                .pattern(" A ")
+                .pattern("B  ")
+                .define('A', ModItems.NOODLUM.get())
+                .define('B', Items.STICK)
+                .unlockedBy("has_noodlum", has(ModItems.NOODLUM)).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.NOODLUM_PICKAXE.get())
+                .pattern("AAA")
+                .pattern(" B ")
+                .pattern(" B ")
+                .define('A', ModItems.NOODLUM.get())
+                .define('B', Items.STICK)
+                .unlockedBy("has_noodlum", has(ModItems.NOODLUM)).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.NOODLUM_AXE.get())
+                .pattern(" AA")
+                .pattern(" BA")
+                .pattern(" B ")
+                .define('A', ModItems.NOODLUM.get())
+                .define('B', Items.STICK)
+                .unlockedBy("has_noodlum", has(ModItems.NOODLUM)).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.NOODLUM_SHOVEL.get())
+                .pattern(" A ")
+                .pattern(" B ")
+                .pattern(" B ")
+                .define('A', ModItems.NOODLUM.get())
+                .define('B', Items.STICK)
+                .unlockedBy("has_noodlum", has(ModItems.NOODLUM)).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.NOODLUM_HOE.get())
+                .pattern(" AA")
+                .pattern(" B ")
+                .pattern(" B ")
+                .define('A', ModItems.NOODLUM.get())
+                .define('B', Items.STICK)
+                .unlockedBy("has_noodlum", has(ModItems.NOODLUM)).save(recipeOutput);
+
     }
 
     protected static void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,

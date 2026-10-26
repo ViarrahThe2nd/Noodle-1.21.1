@@ -7,6 +7,7 @@ import de.viarrah.noodle.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
@@ -30,5 +31,17 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(Item.byBlock(Blocks.DIRT))
                 .add(ModItems.NOODLUM.get())
                 .add(Items.ENDER_PEARL);
+
+        tag(ItemTags.SWORDS)
+                .add(ModItems.NOODLUM_SWORD.get());
+        tag(ItemTags.AXES)
+                .add(ModItems.NOODLUM_AXE.get());
+        tag(ItemTags.PICKAXES)
+                .add(ModItems.NOODLUM_PICKAXE.get())
+                .add(ModItems.NOODLUM_HAMMER.get());
+        tag(ItemTags.SHOVELS)
+                .add(ModItems.NOODLUM_SHOVEL.get());
+        tag(ItemTags.HOES)
+                .add(ModItems.NOODLUM_HOE.get());
     }
 }

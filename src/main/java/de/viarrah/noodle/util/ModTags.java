@@ -10,6 +10,8 @@ import net.minecraft.world.level.block.Block;
 
 public class ModTags {
     public static class Blocks {
+        public static final TagKey<Block> NEEDS_NOODLUM_TOOL = createTag("needs_noodlum_tool");
+        public static final TagKey<Block> INCORRECT_FOR_NOODLUM_TOOL = createTag("incorrect_for_noodlum_tool");
 
         private static TagKey<Block> createTag(String name) {
             return BlockTags.create(ResourceLocation.fromNamespaceAndPath(NoodleMod.MOD_ID, name));

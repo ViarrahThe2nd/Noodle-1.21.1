@@ -33,6 +33,14 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.MAGIC_ASHES);
                         output.accept(ModItems.VISOR);
 
+                        output.accept(ModItems.NOODLUM_SWORD);
+                        output.accept(ModItems.NOODLUM_PICKAXE);
+                        output.accept(ModItems.NOODLUM_AXE);
+                        output.accept(ModItems.NOODLUM_SHOVEL);
+                        output.accept(ModItems.NOODLUM_HOE);
+
+                        output.accept(ModItems.NOODLUM_HAMMER);
+
                     })
                     .build());
 

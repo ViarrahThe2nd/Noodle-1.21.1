@@ -1,17 +1,25 @@
 {
-  "item.noodlemod.noodlum": "Noodlum'd",
+  "item.noodlemod.noodlum": "Noodlum",
   "tooltip.noodlemod.noodlum": "Yum",
 
-  "item.noodlemod.cooked_noodlum": "Noodlum'dAAHHH",
+  "item.noodlemod.cooked_noodlum": "Noodlum but burned",
 
-  "item.noodlemod.chisel": "Le'Chisle",
+  "item.noodlemod.chisel": "Chisel",
 
   "item.noodlemod.magic_fuel": "Magic Fuel",
   "item.noodlemod.magic_ashes": "Magic Ashes",
 
-  "block.noodlemod.noodlum_box": "Buck'a Noodlum'd",
-  "block.noodlemod.noodlum_ore": "Ore'a Noodlum'd",
-  "block.noodlemod.deepslate_noodlum_ore": "D'Ore'a Noodlum'd",
+  "block.noodlemod.noodlum_box": "Box of Noodlum",
+  "block.noodlemod.noodlum_ore": "Ore of Noodlum",
+  "block.noodlemod.deepslate_noodlum_ore": "Dark Ore of Noodlum",
+
+  "item.noodlemod.noodlum_sword": "Noodlum Sword",
+  "item.noodlemod.noodlum_axe": "Noodlum Axe",
+  "item.noodlemod.noodlum_pickaxe": "Noodlum Pickaxe",
+  "item.noodlemod.noodlum_shovel": "Noodlum Shovel",
+  "item.noodlemod.noodlum_hoe": "Noodlum Hoe",
+
+  "item.noodlemod.noodlum_hammer": "Noodlum Hammer",
 
 
   "block.noodlemod.noodlum_block": "Block'a Noodlum'd",
