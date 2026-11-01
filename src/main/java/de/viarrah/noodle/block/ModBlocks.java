@@ -1,9 +1,9 @@
 package de.viarrah.noodle.block;
 
-import com.mojang.blaze3d.shaders.Uniform;
 import de.viarrah.noodle.NoodleMod;
 import de.viarrah.noodle.block.custom.MagicBlock;
 import de.viarrah.noodle.block.custom.NoodleLampBlock;
+import de.viarrah.noodle.block.fogBlock.FogBlock;
 import de.viarrah.noodle.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
@@ -13,7 +13,6 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 

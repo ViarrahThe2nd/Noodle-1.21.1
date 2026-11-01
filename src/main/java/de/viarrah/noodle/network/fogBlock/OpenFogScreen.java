@@ -1,4 +1,4 @@
-package de.viarrah.noodle.network;
+package de.viarrah.noodle.network.fogBlock;
 
 import de.viarrah.noodle.NoodleMod;
 import net.minecraft.core.BlockPos;

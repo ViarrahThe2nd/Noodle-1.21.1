@@ -1,4 +1,4 @@
-package de.viarrah.noodle.fog;
+package de.viarrah.noodle.fog.fogBlock;
 
 import de.viarrah.noodle.NoodleMod;
 import net.minecraft.client.Minecraft;

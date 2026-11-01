@@ -1,7 +1,7 @@
-package de.viarrah.noodle.network;
+package de.viarrah.noodle.network.fogBlock;
 
-import de.viarrah.noodle.blockentity.FogBlockEntity;
-import de.viarrah.noodle.client.FogScreen;
+import de.viarrah.noodle.blockentity.fogBlock.FogBlockEntity;
+import de.viarrah.noodle.client.fogBlock.FogScreen;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.neoforged.neoforge.network.handling.IPayloadContext;

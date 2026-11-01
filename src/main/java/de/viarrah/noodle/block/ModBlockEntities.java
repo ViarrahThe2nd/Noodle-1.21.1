@@ -1,7 +1,7 @@
 package de.viarrah.noodle.block;
 
 import de.viarrah.noodle.NoodleMod;
-import de.viarrah.noodle.blockentity.FogBlockEntity;
+import de.viarrah.noodle.blockentity.fogBlock.FogBlockEntity;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;

@@ -1,5 +1,7 @@
 package de.viarrah.noodle.network;
 
+import de.viarrah.noodle.network.fogBlock.OpenFogScreen;
+import de.viarrah.noodle.network.fogBlock.SaveFogSettings;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 

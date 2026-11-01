@@ -1,9 +1,10 @@
-package de.viarrah.noodle.block;
+package de.viarrah.noodle.block.fogBlock;
 
 
 import com.mojang.serialization.MapCodec;
-import de.viarrah.noodle.blockentity.FogBlockEntity;
-import de.viarrah.noodle.network.OpenFogScreen;
+import de.viarrah.noodle.block.ModBlockEntities;
+import de.viarrah.noodle.blockentity.fogBlock.FogBlockEntity;
+import de.viarrah.noodle.network.fogBlock.OpenFogScreen;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.block.RenderShape;
 import net.neoforged.neoforge.network.PacketDistributor;

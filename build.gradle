@@ -34,6 +34,17 @@ repositories {
     maven {
         url = "https://maven.blamejared.com"
     }
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "Modrinth"
+                url = "https://api.modrinth.com/maven"
+            }
+        }
+        filter {
+            includeGroup "maven.modrinth"
+        }
+    }
 }
 
 base {
@@ -139,6 +150,7 @@ dependencies {
 
     implementation("foundry.veil:veil-neoforge-${project.minecraft_version}:${project.veil_version}")
     implementation("foundry.imguimc:imguimc-neoforge-${project.minecraft_version}:${project.imguimc_version}")
+    implementation "maven.modrinth:zf4Szzx2:HbBv6YVB"
 
     // Example optional mod dependency with JEI
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime

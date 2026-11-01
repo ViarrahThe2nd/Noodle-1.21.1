@@ -1,7 +1,7 @@
-package de.viarrah.noodle.fog;
+package de.viarrah.noodle.fog.fogBlock;
 
 
-import de.viarrah.noodle.blockentity.FogBlockEntity;
+import de.viarrah.noodle.blockentity.fogBlock.FogBlockEntity;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;

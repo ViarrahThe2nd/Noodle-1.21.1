@@ -1,6 +1,7 @@
-package de.viarrah.noodle.network;
+package de.viarrah.noodle.network.fogBlock;
 
 import de.viarrah.noodle.NoodleMod;
+import de.viarrah.noodle.blockentity.fogBlock.FogBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
@@ -83,17 +84,17 @@ public record SaveFogSettings(
             }
 
             if (!(player.level().getBlockEntity(message.pos())
-                    instanceof de.viarrah.noodle.blockentity.FogBlockEntity fog)) {
+                    instanceof FogBlockEntity fog)) {
                 return;
             }
 
             try {
                 var influenceMode =
-                        de.viarrah.noodle.blockentity.FogBlockEntity.InfluenceMode
+                        FogBlockEntity.InfluenceMode
                                 .valueOf(message.influenceMode());
 
                 var activationMode =
-                        de.viarrah.noodle.blockentity.FogBlockEntity.ActivationMode
+                        FogBlockEntity.ActivationMode
                                 .valueOf(message.activationMode());
 
                 fog.setFogSettings(

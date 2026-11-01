@@ -1,9 +1,9 @@
-package de.viarrah.noodle.client;
+package de.viarrah.noodle.client.fogBlock;
 
-import de.viarrah.noodle.blockentity.FogBlockEntity;
-import de.viarrah.noodle.fog.FogButton;
-import de.viarrah.noodle.fog.FogSourceRegistry;
-import de.viarrah.noodle.network.SaveFogSettings;
+import de.viarrah.noodle.blockentity.fogBlock.FogBlockEntity;
+import de.viarrah.noodle.fog.fogBlock.FogButton;
+import de.viarrah.noodle.fog.fogBlock.FogSourceRegistry;
+import de.viarrah.noodle.network.fogBlock.SaveFogSettings;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;

@@ -1,4 +1,4 @@
-package de.viarrah.noodle.client;
+package de.viarrah.noodle.client.fogBlock;
 
 import de.viarrah.noodle.NoodleMod;
 import net.minecraft.client.gui.components.AbstractSliderButton;

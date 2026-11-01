@@ -1,9 +1,9 @@
-package de.viarrah.noodle.fog;
+package de.viarrah.noodle.fog.fogBlock;
 
 
 import de.viarrah.noodle.NoodleMod;
 import de.viarrah.noodle.block.ModBlocks;
-import de.viarrah.noodle.blockentity.FogBlockEntity;
+import de.viarrah.noodle.blockentity.fogBlock.FogBlockEntity;
 import foundry.veil.api.client.render.post.PostPipeline;
 import foundry.veil.api.client.render.shader.uniform.ShaderUniformAccess;
 import foundry.veil.platform.VeilEventPlatform;

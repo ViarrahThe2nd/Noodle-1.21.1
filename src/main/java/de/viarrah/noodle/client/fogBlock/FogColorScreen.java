@@ -1,6 +1,6 @@
-package de.viarrah.noodle.client;
+package de.viarrah.noodle.client.fogBlock;
 
-import de.viarrah.noodle.fog.FogButton;
+import de.viarrah.noodle.fog.fogBlock.FogButton;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;

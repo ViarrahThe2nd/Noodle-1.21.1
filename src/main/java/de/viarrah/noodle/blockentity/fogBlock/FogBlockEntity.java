@@ -1,7 +1,7 @@
-package de.viarrah.noodle.blockentity;
+package de.viarrah.noodle.blockentity.fogBlock;
 
 import de.viarrah.noodle.block.ModBlockEntities;
-import de.viarrah.noodle.fog.FogSourceRegistry;
+import de.viarrah.noodle.fog.fogBlock.FogSourceRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;

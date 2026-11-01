@@ -1,10 +1,10 @@
-package de.viarrah.noodle.fog;
+package de.viarrah.noodle.fog.fogBlock;
 
 
 import de.viarrah.noodle.NoodleMod;
-import de.viarrah.noodle.blockentity.FogBlockEntity;
-import de.viarrah.noodle.client.FogScreen;
-import de.viarrah.noodle.network.OpenFogScreen;
+import de.viarrah.noodle.blockentity.fogBlock.FogBlockEntity;
+import de.viarrah.noodle.client.fogBlock.FogScreen;
+import de.viarrah.noodle.network.fogBlock.OpenFogScreen;
 import foundry.veil.api.client.render.VeilRenderSystem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
