@@ -91,6 +91,12 @@ public class ModBlocks {
             () -> new MagicBlock(BlockBehaviour.Properties.of().strength(2f).noLootTable().sound(SoundType.METAL)));
 
 
+    public static final DeferredBlock<FogBlock> FOG_BLOCK =
+            registerBlock("fog_block", () ->
+                    new FogBlock(BlockBehaviour.Properties.of().strength(1.5f).noLootTable())
+            );
+
+
 
     // END OF REGISTERING
 

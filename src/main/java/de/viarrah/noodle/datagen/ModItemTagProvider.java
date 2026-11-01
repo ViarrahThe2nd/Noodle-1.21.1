@@ -12,6 +12,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 
@@ -43,5 +44,11 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.NOODLUM_SHOVEL.get());
         tag(ItemTags.HOES)
                 .add(ModItems.NOODLUM_HOE.get());
+
+        this.tag(ItemTags.TRIMMABLE_ARMOR)
+                .add(ModItems.NOODLUM_HELMET.get())
+                .add(ModItems.NOODLUM_CHESTPLATE.get())
+                .add(ModItems.NOODLUM_LEGGINGS.get())
+                .add(ModItems.NOODLUM_BOOTS.get());
     }
 }

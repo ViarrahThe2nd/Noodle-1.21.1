@@ -1,0 +1,10 @@
+{
+  "stages": [
+    {
+      "type": "veil:blit",
+      "shader": "noodlemod:fog",
+      "in": "minecraft:main",
+      "out": "veil:post"
+    }
+  ]
+}

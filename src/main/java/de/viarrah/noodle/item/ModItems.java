@@ -67,6 +67,23 @@ public class ModItems {
 
     public static final DeferredItem<ArmorItem> VISOR = ITEMS.registerItem("visor", p -> new ArmorItem(ArmorMaterials.DIAMOND, ArmorItem.Type.HELMET, p),
             new Item.Properties().durability(128));
+    public static final DeferredItem<ArmorItem> FOGVISOR = ITEMS.registerItem("fogvisor", p -> new ArmorItem(ArmorMaterials.DIAMOND, ArmorItem.Type.HELMET, p),
+            new Item.Properties().durability(128));
+
+
+    // noodlum armor
+    public static final DeferredItem<ArmorItem> NOODLUM_HELMET = ITEMS.register("noodlum_helmet",
+            () -> new ArmorItem(ModArmorMaterials.NOODLUM_ARMOR_MATERIAL, ArmorItem.Type.HELMET,
+                    new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(83))));
+    public static final DeferredItem<ArmorItem> NOODLUM_CHESTPLATE = ITEMS.register("noodlum_chestplate",
+            () -> new ArmorItem(ModArmorMaterials.NOODLUM_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE,
+                    new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(83))));
+    public static final DeferredItem<ArmorItem> NOODLUM_LEGGINGS = ITEMS.register("noodlum_leggings",
+            () -> new ArmorItem(ModArmorMaterials.NOODLUM_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS,
+                    new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(83))));
+    public static final DeferredItem<ArmorItem> NOODLUM_BOOTS = ITEMS.register("noodlum_boots",
+            () -> new ArmorItem(ModArmorMaterials.NOODLUM_ARMOR_MATERIAL, ArmorItem.Type.BOOTS,
+                    new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(83))));
 
 
 

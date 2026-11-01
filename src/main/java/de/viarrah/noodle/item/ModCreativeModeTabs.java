@@ -31,7 +31,9 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.CHISEL);
                         output.accept(ModItems.MAGIC_FUEL);
                         output.accept(ModItems.MAGIC_ASHES);
+
                         output.accept(ModItems.VISOR);
+                        output.accept(ModItems.FOGVISOR);
 
                         output.accept(ModItems.NOODLUM_SWORD);
                         output.accept(ModItems.NOODLUM_PICKAXE);
@@ -40,6 +42,13 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.NOODLUM_HOE);
 
                         output.accept(ModItems.NOODLUM_HAMMER);
+
+                        output.accept(ModItems.NOODLUM_HELMET);
+                        output.accept(ModItems.NOODLUM_CHESTPLATE);
+                        output.accept(ModItems.NOODLUM_LEGGINGS);
+                        output.accept(ModItems.NOODLUM_BOOTS);
+
+                        output.accept(ModBlocks.FOG_BLOCK);
 
                     })
                     .build());

@@ -1,6 +1,8 @@
 package de.viarrah.noodle;
 
 import de.viarrah.noodle.block.ModBlocks;
+import de.viarrah.noodle.block.ModBlockEntities;
+import de.viarrah.noodle.client.FogKeyTemp;
 import de.viarrah.noodle.component.ModDataComponents;
 import de.viarrah.noodle.item.ModCreativeModeTabs;
 import de.viarrah.noodle.item.ModItems;
@@ -45,8 +47,13 @@ public class NoodleMod
 
         ModDataComponents.register(noodleEventBus);
 
+        ModBlockEntities.register(noodleEventBus);
+
         // Register the item to a creative tab
         noodleEventBus.addListener(this::addCreative);
+
+        noodleEventBus.addListener(FogKeyTemp::register);
+        NeoForge.EVENT_BUS.register(FogKeyTemp.class);
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);

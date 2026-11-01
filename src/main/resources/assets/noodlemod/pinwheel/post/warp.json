@@ -2,9 +2,8 @@
   "stages": [
     {
       "type": "veil:blit",
-      "shader": "tutorial:grayscale",
+      "shader": "shaders:warp",
       "in": "minecraft:main",
       "out": "veil:post"
-    }
-  ]
+    }]
 }
