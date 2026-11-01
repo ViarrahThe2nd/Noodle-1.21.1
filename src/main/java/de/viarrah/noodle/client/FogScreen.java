@@ -1,24 +1,67 @@
 package de.viarrah.noodle.client;
 
+import de.viarrah.noodle.blockentity.FogBlockEntity;
 import de.viarrah.noodle.fog.FogButton;
+import de.viarrah.noodle.fog.FogSourceRegistry;
+import de.viarrah.noodle.network.SaveFogSettings;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.components.AbstractSliderButton;
-import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.network.chat.Component;
-import net.neoforged.fml.ISystemReportExtender;
-
-import java.util.function.Consumer;
+import net.neoforged.neoforge.network.PacketDistributor;
 
 public class FogScreen extends Screen {
+
+    private final FogBlockEntity fog;
+    private int currentColor;
+    private float influenceDistance;
+    private float fogStart;
+    private float fogEnd;
+    private float startPercentage;
+    private float endPercentage;
+
+    private boolean keepPreview = false;
+
     private boolean percentageMode = false;
 
-    protected FogScreen() {
+    private FogBlockEntity.ActivationMode activationMode;
+
+    public FogScreen(FogBlockEntity fog) {
         super(Component.nullToEmpty("Settings"));
+        this.fog = fog;
+        this.currentColor = this.fog.getFogColor();
+        percentageMode = this.fog.getInfluenceMode() == FogBlockEntity.InfluenceMode.PERCENTAGE;
+        this.activationMode = fog.getActivationMode();
+
+        this.influenceDistance = fog.getInfluenceDistance();
+        this.fogStart = fog.getFogStart();
+        this.fogEnd = fog.getFogEnd();
+        this.startPercentage = fog.getStartPercentage() * 100;
+        this.endPercentage = fog.getEndPercentage() * 100;
     }
 
-    private int currentColor = 0xFFFFFF;
+    private void updatePreview() {
+        if (!(Minecraft.getInstance().level instanceof ClientLevel level)) return;
+
+        FogSourceRegistry.updatePreview(
+                level,
+                new FogSourceRegistry.FogSource(
+                        fog.getBlockPos().immutable(),
+                        influenceDistance,
+                        fogStart,
+                        fogEnd,
+                        currentColor,
+                        percentageMode
+                                ? FogBlockEntity.InfluenceMode.PERCENTAGE
+                                : FogBlockEntity.InfluenceMode.FULL,
+                        startPercentage / 100.0f,
+                        endPercentage / 100.0f,
+                        activationMode,
+                        level.getGameTime()
+                )
+        );
+    }
 
     @Override
     public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
@@ -33,6 +76,15 @@ public class FogScreen extends Screen {
     }
 
     @Override
+    public void onClose() {
+        if (!keepPreview && Minecraft.getInstance().level instanceof ClientLevel level) {
+            FogSourceRegistry.removePreview(level, fog.getBlockPos());
+        }
+
+        super.onClose();
+    }
+
+    @Override
     protected void init() {
         super.init();
 
@@ -42,17 +94,15 @@ public class FogScreen extends Screen {
 
         FogButton modeButton = new FogButton(
                 centerX - 150, centerY - 90, 300, 20,
-                Component.nullToEmpty("PERCENTAGE"),
+                Component.nullToEmpty(percentageMode ? "PERCENTAGE" : "FULL"),
                 button -> {
                     percentageMode = !percentageMode;
 
                     button.setMessage(Component.nullToEmpty(
                             percentageMode ? "PERCENTAGE" : "FULL"
                     ));
-
                 }
         );
-
         this.addRenderableWidget(modeButton);
 
 
@@ -60,33 +110,77 @@ public class FogScreen extends Screen {
                 centerX - 150, centerY - 65, 300, 20,
                 Component.nullToEmpty("Fog Color"),
                 button -> Minecraft.getInstance().setScreen(
-                        new FogColorScreen(this, currentColor, color -> currentColor = color)
+                        new FogColorScreen(this, currentColor, color -> {
+                            currentColor = color;
+                            updatePreview();
+                        })
                 )
         );
-
         this.addRenderableWidget(colorButton);
 
 
         FogButton doneButton = new FogButton(
-                centerX - 150, centerY + 110, 300, 20,
+                centerX + 5, centerY + 110, 145, 20,
                 Component.nullToEmpty("Done"),
-                button -> this.onClose()
-        );
+                button -> {
+                    PacketDistributor.sendToServer(new SaveFogSettings(
+                            fog.getBlockPos(),
+                            influenceDistance,
+                            fogStart,
+                            fogEnd,
+                            currentColor,
+                            percentageMode
+                                    ? FogBlockEntity.InfluenceMode.PERCENTAGE.name()
+                                    : FogBlockEntity.InfluenceMode.FULL.name(),
+                            startPercentage / 100.0f,
+                            endPercentage / 100.0f,
+                            activationMode.name()
+                    ));
 
+                    keepPreview = true;
+                    this.onClose();
+                }
+        );
         this.addRenderableWidget(doneButton);
+
+        FogButton activationButton = new FogButton(
+                centerX - 150, centerY + 35, 300, 20,
+                Component.nullToEmpty(String.valueOf(activationMode)),
+                button -> {
+                    activationMode = switch (activationMode) {
+                        case ENABLED -> FogBlockEntity.ActivationMode.DISABLED;
+                        case DISABLED -> FogBlockEntity.ActivationMode.REDSTONE;
+                        case REDSTONE -> FogBlockEntity.ActivationMode.ENABLED;
+                    };
+
+                    button.setMessage(Component.nullToEmpty(String.valueOf(activationMode)));
+                    updatePreview();
+                }
+        );
+        this.addRenderableWidget(activationButton);
+
+        FogButton cancelButton = new FogButton(
+                centerX - 150, centerY + 110, 145, 20,
+                Component.nullToEmpty("Cancel"),
+                button -> {
+                    keepPreview = false;
+                    this.onClose();
+                }
+        );
+        this.addRenderableWidget(cancelButton);
 
 
         FogSlider distanceSlider = new FogSlider(
                 centerX - 150, centerY - 40,
                300, 20,
                 "Influence Distance",
-                0, 200,
-                15,
+                0, 200, 1.0,
+                this.fog != null ? influenceDistance : 30.0,
                 value -> {
-                    // store
+                    influenceDistance = value.floatValue();
+                    updatePreview();
                 }
         );
-
         this.addRenderableWidget(distanceSlider);
 
 
@@ -94,13 +188,13 @@ public class FogScreen extends Screen {
                 centerX - 150, centerY - 15,
                 145, 20,
                 "Start Distance",
-                -30, 200,
-                0,
+                -50, 300, 1.0,
+                this.fog != null ? fogStart : -5.0,
                 value -> {
-                    // store
+                    fogStart = value.floatValue();
+                    updatePreview();
                 }
         );
-
         this.addRenderableWidget(startSlider);
 
 
@@ -108,13 +202,13 @@ public class FogScreen extends Screen {
                 centerX + 5, centerY - 15,
                 145, 20,
                 "End Distance",
-                0, 300,
-                50,
+                0, 500, 1.0,
+                this.fog != null ? fogEnd : 60.0,
                 value -> {
-                    // store
+                    fogEnd = value.floatValue();
+                    updatePreview();
                 }
         );
-
         this.addRenderableWidget(endSlider);
 
 
@@ -122,13 +216,13 @@ public class FogScreen extends Screen {
                 centerX - 150, centerY + 10,
                 145, (int) 20,
                 "minimum Coverage",
-                0, 100,
-                15,
+                0, 100, 1.0,
+                this.fog != null ? startPercentage : 0.0,
                 value -> {
-                    // store
+                    startPercentage = value.floatValue();
+                    updatePreview();
                 }
         );
-
         this.addRenderableWidget(startPercentageSlider);
 
 
@@ -136,13 +230,13 @@ public class FogScreen extends Screen {
                 centerX + 5, centerY + 10,
                 145, 20,
                 "maximum Coverage",
-                0, 100,
-                15,
+                0, 100, 1.0,
+                this.fog != null ? endPercentage : 100.0,
                 value -> {
-                    // store
+                    endPercentage = value.floatValue();
+                    updatePreview();
                 }
         );
-
         this.addRenderableWidget(endPercentageSlider);
 
 

@@ -2,6 +2,8 @@ package de.viarrah.noodle.fog;
 
 
 import de.viarrah.noodle.NoodleMod;
+import de.viarrah.noodle.block.ModBlocks;
+import de.viarrah.noodle.blockentity.FogBlockEntity;
 import foundry.veil.api.client.render.post.PostPipeline;
 import foundry.veil.api.client.render.shader.uniform.ShaderUniformAccess;
 import foundry.veil.platform.VeilEventPlatform;
@@ -9,6 +11,7 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 
 @EventBusSubscriber(
         modid = NoodleMod.MOD_ID,
@@ -50,6 +53,23 @@ public class FogClientSetup {
                     }
             );
         });
+    }
+
+    @SubscribeEvent
+    public static void registerFogBlockColor(RegisterColorHandlersEvent.Block event) {
+        event.register((state, level, pos, tintIndex) -> {
+            if (tintIndex != 0) {
+                return 0xFFFFFFFF;
+            }
+
+            if (level != null
+                    && pos != null
+                    && level.getBlockEntity(pos) instanceof FogBlockEntity fog) {
+                return 0xFF000000 | (fog.getFogColor() & 0xFFFFFF);
+            }
+
+            return 0xFFFFFFFF;
+        }, ModBlocks.FOG_BLOCK.get());
     }
 
     private static void setFloat(

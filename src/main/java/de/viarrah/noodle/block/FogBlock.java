@@ -3,6 +3,10 @@ package de.viarrah.noodle.block;
 
 import com.mojang.serialization.MapCodec;
 import de.viarrah.noodle.blockentity.FogBlockEntity;
+import de.viarrah.noodle.network.OpenFogScreen;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.level.block.RenderShape;
+import net.neoforged.neoforge.network.PacketDistributor;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
@@ -22,6 +26,8 @@ public class FogBlock extends BaseEntityBlock {
     public FogBlock(Properties properties) {
         super(properties);
     }
+
+    private int currentColor = 0xFFFFFF;
 
     @Override
     protected MapCodec<? extends BaseEntityBlock> codec() {
@@ -54,24 +60,26 @@ public class FogBlock extends BaseEntityBlock {
     public void setPlacedBy(Level level, BlockPos pos, BlockState state,
                             @Nullable LivingEntity placer, ItemStack stack) {
         super.setPlacedBy(level, pos, state, placer, stack);
-
-        if (!level.isClientSide) {
-            if (level.getBlockEntity(pos) instanceof FogBlockEntity fog ) {
-                fog.setFogSettings(
-                        30.0f,
-                        5.0f,
-                        60.0f,
-                        0x8099CC,
-                        FogBlockEntity.InfluenceMode.PERCENTAGE,
-                        0.0f,
-                        1.0f
-                );
-            }
-        }
     }
 
     @Override
-    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
-        return super.useWithoutItem(state, level, pos, player, hitResult);
+    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos,
+                                               Player player, BlockHitResult hitResult) {
+        if (level.isClientSide) {
+            return InteractionResult.SUCCESS;
+        }
+
+        if (player instanceof ServerPlayer serverPlayer
+                && serverPlayer.hasPermissions(2)
+                && level.getBlockEntity(pos) instanceof FogBlockEntity) {
+            PacketDistributor.sendToPlayer(serverPlayer, new OpenFogScreen(pos));
+        }
+
+        return InteractionResult.CONSUME;
+    }
+
+    @Override
+    public RenderShape getRenderShape(BlockState state) {
+        return RenderShape.MODEL;
     }
 }

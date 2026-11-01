@@ -9,7 +9,7 @@ import net.minecraft.util.Mth;
 
 public final class FogManager {
 
-    private static final long TRANSITION_DURATION = 500_000_000L; // 0.5 seconds
+    private static final long TRANSITION_DURATION = 200_000_000L; // 0.2 seconds
 
     private static ClientLevel currentLevel;
 
@@ -49,7 +49,6 @@ public final class FogManager {
             ClientLevel level,
             LocalPlayer player
     ) {
-
         double sumWeight = 0.0;
 
         double weightedStart = 0.0;
@@ -69,6 +68,13 @@ public final class FogManager {
             if (radius <= 0.0f) continue;
 
             BlockPos pos = source.pos();
+
+            if (source.activationMode() == FogBlockEntity.ActivationMode.DISABLED) {
+                continue;
+            }
+            if (source.activationMode() == FogBlockEntity.ActivationMode.REDSTONE && !level.hasNeighborSignal(pos)) {
+                continue;
+            }
 
             double dx = player.getX() - (pos.getX() + 0.5);
             double dy = player.getY() - (pos.getY() + 0.5);

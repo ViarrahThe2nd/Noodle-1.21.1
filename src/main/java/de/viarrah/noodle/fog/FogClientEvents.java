@@ -2,9 +2,13 @@ package de.viarrah.noodle.fog;
 
 
 import de.viarrah.noodle.NoodleMod;
+import de.viarrah.noodle.blockentity.FogBlockEntity;
+import de.viarrah.noodle.client.FogScreen;
+import de.viarrah.noodle.network.OpenFogScreen;
 import foundry.veil.api.client.render.VeilRenderSystem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -31,6 +35,13 @@ public class FogClientEvents {
         if (!(mc.level instanceof ClientLevel level) || mc.player == null) {
             FogManager.reset();
             return;
+        }
+
+        BlockPos openPos = OpenFogScreen.consumePendingPos();
+
+        if (openPos != null
+                && level.getBlockEntity(openPos) instanceof FogBlockEntity fog) {
+            Minecraft.getInstance().setScreen(new FogScreen(fog));
         }
 
         FogSourceRegistry.prune(level, level.getGameTime());

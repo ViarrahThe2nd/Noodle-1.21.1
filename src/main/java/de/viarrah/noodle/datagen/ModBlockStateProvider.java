@@ -60,6 +60,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockItem(ModBlocks.NOODLUM_TRAPDOOR, "_bottom");
         //------------------------------------------------------------------------------------
 
+        // Fog Block
+        simpleBlockWithItem(
+                ModBlocks.FOG_BLOCK.get(),
+                new ModelFile.UncheckedModelFile(modLoc("block/fog_block"))
+        );
+
         noodlumLamp();
     }
 

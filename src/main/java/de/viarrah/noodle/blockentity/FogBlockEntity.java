@@ -20,15 +20,23 @@ public class FogBlockEntity extends BlockEntity {
         PERCENTAGE
     }
 
-    private float influenceDistance = 30.0f;
+    public enum ActivationMode {
+        ENABLED,
+        DISABLED,
+        REDSTONE
+    }
+    // whole lotta default values
+    private ActivationMode activationMode = ActivationMode.ENABLED; //default value
 
-    private float fogStart = -4.0f;
-    private float fogEnd = 34.0f;
+    private float influenceDistance = 45.0f;
+
+    private float fogStart = -5.0f;
+    private float fogEnd = 90.0f;
 
     //RGB in HEX: 0xRRGGBB
-    private int fogColor = 0x8099CC;
+    private int fogColor = 0xCCCCCC;
 
-    private InfluenceMode influenceMode = InfluenceMode.FULL;
+    private InfluenceMode influenceMode = InfluenceMode.PERCENTAGE; //default value
 
     private float startPercentage = 0.0f;
     private float endPercentage = 1.0f;
@@ -55,6 +63,7 @@ public class FogBlockEntity extends BlockEntity {
                 influenceMode,
                 startPercentage,
                 endPercentage,
+                activationMode,
                 gameTime
         );
     }
@@ -67,9 +76,11 @@ public class FogBlockEntity extends BlockEntity {
             int fogColor,
             InfluenceMode mode,
             float startPercentage,
-            float endPercentage
+            float endPercentage,
+            ActivationMode activationMode
     ) {
         this.influenceDistance = Math.max(0.01f, influenceDistance);
+        this.activationMode = activationMode;
 
         this.fogStart = fogStart;
         this.fogEnd = Math.max(fogStart + 0.01f, fogEnd);
@@ -101,6 +112,7 @@ public class FogBlockEntity extends BlockEntity {
     public float getFogEnd() { return fogEnd; }
     public int getFogColor() { return fogColor; }
     public InfluenceMode getInfluenceMode() { return influenceMode; }
+    public ActivationMode getActivationMode() { return activationMode; }
     public float getStartPercentage() { return startPercentage; }
     public float getEndPercentage() { return endPercentage; }
 
@@ -118,6 +130,7 @@ public class FogBlockEntity extends BlockEntity {
 
         tag.putFloat("StartPercentage", startPercentage);
         tag.putFloat("EndPercentage", endPercentage);
+        tag.putString("ActivationMode", activationMode.name());
     }
 
     // NBT loading
@@ -135,11 +148,17 @@ public class FogBlockEntity extends BlockEntity {
         try {
             influenceMode = InfluenceMode.valueOf(tag.getString("InfluenceMode"));
         } catch (IllegalArgumentException exception) {
-            influenceMode = InfluenceMode.FULL;
+            influenceMode = InfluenceMode.PERCENTAGE;
         }
 
         startPercentage = Mth.clamp(tag.getFloat("StartPercentage"), 0.0f, 1.0f);
         endPercentage = Mth.clamp(tag.getFloat("EndPercentage"), 0.0f, 1.0f);
+
+        try {
+            activationMode = ActivationMode.valueOf(tag.getString("ActivationMode"));
+        } catch (IllegalArgumentException exception) {
+            activationMode = ActivationMode.ENABLED;
+        }
     }
 
     // Synchronize when a chunk loads.
