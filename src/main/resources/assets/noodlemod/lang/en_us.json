@@ -27,7 +27,7 @@
   "item.noodlemod.noodlum_boots": "Noodlum Boots",
 
   "block.noodlemod.fog_block": "Fog Generator",
-
+  "block.noodlemod.reflection_block": "LabPBR Reflection Block",
 
   "block.noodlemod.noodlum_block": "Block'a Noodlum'd",
   "block.noodlemod.noodlum_slab": "Noodlum Slab",
@@ -40,6 +40,7 @@
   "block.noodlemod.noodlum_button": "Noodlum Button",
   "block.noodlemod.noodlum_pressure_plate": "Noodlum Pressure Plate",
 
+
   "block.noodlemod.noodlum_lamp": "Noodlum Lamp",
   "tooltip.noodlemod.noodlum_lamp": "Right click with an empty hand to turn it on",
 
@@ -47,6 +48,7 @@
 
   "creativetab.noodlemod.noodles_items": "Noodle Items",
   "creativetab.noodlemod.noodles_blocks": "Noodle Blocks",
+  "creativetab.noodlemod.noodles_utilities": "Utilities",
 
  "tooltip.noodlemod.magic_block.tooltip": "Something might turn to §bDiamonds...",
 

@@ -1,0 +1,104 @@
+package de.viarrah.noodle.dimension;
+
+import de.viarrah.noodle.NoodleMod;
+import net.irisshaders.iris.Iris;
+import net.irisshaders.iris.api.v0.IrisApi;
+import net.minecraft.client.Minecraft;
+import net.minecraft.resources.ResourceLocation;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.client.event.ClientTickEvent;
+import net.neoforged.neoforge.client.event.CustomizeGuiOverlayEvent;
+
+import java.io.IOException;
+import java.util.Map;
+
+@EventBusSubscriber(
+        modid = NoodleMod.MOD_ID,
+        value = Dist.CLIENT
+)
+
+public class RiftShaderEvents {
+
+    private static ResourceLocation dimensionId(String namespace, String path) {
+        return ResourceLocation.fromNamespaceAndPath(namespace, path);
+    }
+
+    private static ResourceLocation lastDimensionLoc = null;
+
+    @SubscribeEvent
+    public static void onClientTick(ClientTickEvent.Post event) {
+        Minecraft minecraft = Minecraft.getInstance();
+
+        if (minecraft.level == null || minecraft.player == null) {
+            lastDimensionLoc = null;
+            return;
+        }
+
+        ResourceLocation currentDimension = minecraft.level.dimension().location();
+
+        // Only reload once, not per tick
+        if (currentDimension.equals(lastDimensionLoc)) {
+            return;
+        }
+
+        lastDimensionLoc = currentDimension;
+
+        String shaderPackName = SHADERS_BY_DIM.get(currentDimension);
+        // leave unchanged for "current" dimension
+        if (shaderPackName == null) {
+            return;
+        }
+
+        applyShaderPackFor(shaderPackName);
+
+    }
+
+    @SubscribeEvent
+    public static void replaceDebugText(CustomizeGuiOverlayEvent.DebugText event) {
+        Minecraft minecraft = Minecraft.getInstance();
+
+        if (minecraft.level == null) {
+            return;
+        }
+
+        ResourceLocation currentDimension = minecraft.level.dimension().location();
+
+        if (!currentDimension.getNamespace().equals(NoodleMod.MOD_ID)) {
+            return;
+        }
+
+        event.getLeft().clear();
+        event.getRight().clear();
+        event.getLeft().add("HA! You really thought you could use coordinates? HELL NO.");
+    }
+
+    private static final Map<ResourceLocation, String> SHADERS_BY_DIM = Map.of(
+            dimensionId("noodlemod", "rifts/nothing"), "Nothing_Kappa.zip",
+            dimensionId("minecraft", "overworld"), "Overworld_Hysteria.zip"
+    );
+
+    private static void applyShaderPackFor(String shaderPackName) {
+
+        try {
+            if (shaderPackName.isBlank()) {
+                // Empty name = no shader
+                IrisApi.getInstance()
+                        .getConfig()
+                        .setShadersEnabledAndApply(false);
+                return;
+            }
+
+            Iris.getIrisConfig().setShaderPackName(shaderPackName);
+            Iris.getIrisConfig().setShadersEnabled(true);
+            //save selected before reload
+            Iris.getIrisConfig().save();
+            Iris.reload();
+        } catch (IOException exception) {
+            NoodleMod.LOGGER.error("Could not switch shader to '{}'", shaderPackName, exception);
+        }
+
+    }
+
+}

@@ -53,7 +53,7 @@ public class FogClientEvents {
                 .getPostProcessingManager();
 
         if (!postManager.isActive(FOG_PIPELINE)) {
-            postManager.add(FOG_PIPELINE);
+            postManager.add(10000, FOG_PIPELINE);
         }
     }
 }

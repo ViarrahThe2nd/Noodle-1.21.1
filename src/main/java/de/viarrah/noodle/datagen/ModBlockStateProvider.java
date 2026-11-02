@@ -27,6 +27,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         blockWithItem(ModBlocks.MAGIC_BLOCK);
 
+        blockWithItem(ModBlocks.REFLECTION_BLOCK);
+
         // Noodlum family -----------------------------------------------------------------
         stairsBlock(ModBlocks.NOODLUM_STAIRS.get(),
                 blockTexture(ModBlocks.NOODLUM_BLOCK.get()));

@@ -90,10 +90,15 @@ public class ModBlocks {
             () -> new MagicBlock(BlockBehaviour.Properties.of().strength(2f).noLootTable().sound(SoundType.METAL)));
 
 
-    public static final DeferredBlock<FogBlock> FOG_BLOCK =
-            registerBlock("fog_block", () ->
-                    new FogBlock(BlockBehaviour.Properties.of().strength(1.5f).noLootTable())
-            );
+    // UTILITY BLOCKS
+
+    public static final DeferredBlock<Block> REFLECTION_BLOCK = registerBlock("reflection_block",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(-1.0F, 3_600_000.F).noLootTable().sound(SoundType.GLASS)));
+
+    public static final DeferredBlock<FogBlock> FOG_BLOCK = registerBlock("fog_block",
+            () -> new FogBlock(BlockBehaviour.Properties.of()
+                    .strength(1.5f).noLootTable()));
 
 
 

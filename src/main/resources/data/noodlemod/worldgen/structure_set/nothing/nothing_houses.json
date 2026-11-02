@@ -1,0 +1,18 @@
+{
+  "structures": [
+    {
+      "structure": "noodlemod:nothing/nothing_house1",
+      "weight": 1
+    },
+    {
+      "structure": "noodlemod:nothing/nothing_house2",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 80,
+    "separation": 50,
+    "salt": 734921
+  }
+}

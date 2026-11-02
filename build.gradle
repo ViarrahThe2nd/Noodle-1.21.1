@@ -159,8 +159,18 @@ dependencies {
 
     implementation("foundry.veil:veil-neoforge-${project.minecraft_version}:${project.veil_version}")
     implementation("foundry.imguimc:imguimc-neoforge-${project.minecraft_version}:${project.imguimc_version}")
-    implementation "maven.modrinth:9s6osm5g:izKINKFg"
-    implementation "software.bernie.geckolib:geckolib-neoforge-1.21.1:4.9.3"
+    implementation "maven.modrinth:9s6osm5g:izKINKFg" //
+    implementation "software.bernie.geckolib:geckolib-neoforge-1.21.1:4.9.3" // geckolib
+
+    // USE FOR CLIENT
+    implementation "maven.modrinth:YL57xq9U:KduFYu4t" // Iris 1.8.14 Beta 1, NeoForge 1.21.1
+    /* USE FOR RUNDATA
+    compileOnly "maven.modrinth:YL57xq9U:KduFYu4t"// Iris 1.8.14 Beta 1, NeoForge 1.21.1
+    clientAdditionalRuntimeClasspath "maven.modrinth:YL57xq9U:KduFYu4t"
+    client2AdditionalRuntimeClasspath "maven.modrinth:YL57xq9U:KduFYu4t"
+    */
+
+    // implementation "maven.modrinth:AANobbMI:uMOpc5uV" // Sodium 0.8.13, NeoForge 1.21.1
 
     // Example optional mod dependency with JEI
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime

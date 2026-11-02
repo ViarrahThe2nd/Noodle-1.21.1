@@ -67,8 +67,7 @@ public class ModItems {
 
     public static final DeferredItem<ArmorItem> VISOR = ITEMS.registerItem("visor", p -> new ArmorItem(ArmorMaterials.DIAMOND, ArmorItem.Type.HELMET, p),
             new Item.Properties().durability(128));
-    public static final DeferredItem<ArmorItem> FOGVISOR = ITEMS.registerItem("fogvisor", p -> new ArmorItem(ArmorMaterials.DIAMOND, ArmorItem.Type.HELMET, p),
-            new Item.Properties().durability(128));
+
 
 
     // noodlum armor

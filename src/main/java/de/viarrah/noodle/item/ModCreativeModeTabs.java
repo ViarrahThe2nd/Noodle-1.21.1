@@ -32,9 +32,6 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.MAGIC_FUEL);
                         output.accept(ModItems.MAGIC_ASHES);
 
-                        output.accept(ModItems.VISOR);
-                        output.accept(ModItems.FOGVISOR);
-
                         output.accept(ModItems.NOODLUM_SWORD);
                         output.accept(ModItems.NOODLUM_PICKAXE);
                         output.accept(ModItems.NOODLUM_AXE);
@@ -47,8 +44,6 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.NOODLUM_CHESTPLATE);
                         output.accept(ModItems.NOODLUM_LEGGINGS);
                         output.accept(ModItems.NOODLUM_BOOTS);
-
-                        output.accept(ModBlocks.FOG_BLOCK);
 
                     })
                     .build());
@@ -79,6 +74,20 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.NOODLUM_WALL);
 
                         output.accept(ModBlocks.NOODLUM_LAMP);
+
+                    })
+                    .build());
+
+    public static final Supplier<CreativeModeTab> NOODLE_UTILITIES_TAB = CREATIVE_MODE_TAB.register("noodles_utilities",
+            () -> CreativeModeTab.builder()
+                    .icon(() -> new ItemStack(ModBlocks.FOG_BLOCK))
+                    .withTabsBefore(ResourceLocation.fromNamespaceAndPath(NoodleMod.MOD_ID, "noodles_blocks"))
+                    .title(Component.translatable("creativetab.noodlemod.noodles_utilities"))
+                    .displayItems((itemDisplayParameters, output) -> {
+
+                        output.accept(ModBlocks.REFLECTION_BLOCK);
+                        output.accept(ModBlocks.FOG_BLOCK);
+                        output.accept(ModItems.VISOR);
 
                     })
                     .build());

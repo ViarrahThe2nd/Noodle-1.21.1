@@ -22,7 +22,7 @@ public class VisorItem {
 
             if (event.getTo().getItem() == ModItems.VISOR.get()) {
                 // add post effect
-                VeilRenderSystem.renderer().getPostProcessingManager().add(ResourceLocation.fromNamespaceAndPath("noodlemod", "grayscale"));
+                VeilRenderSystem.renderer().getPostProcessingManager().add(1, ResourceLocation.fromNamespaceAndPath("noodlemod", "grayscale"));
             } else {
                 // remove post effect
                 VeilRenderSystem.renderer().getPostProcessingManager().remove(ResourceLocation.fromNamespaceAndPath("noodlemod", "grayscale"));
@@ -30,19 +30,12 @@ public class VisorItem {
 
             if (event.getTo().getItem() == ModItems.NOODLUM_HELMET.get()) {
                 // add post effect
-                VeilRenderSystem.renderer().getPostProcessingManager().add(ResourceLocation.fromNamespaceAndPath("noodlemod", "warp"));
+                VeilRenderSystem.renderer().getPostProcessingManager().add(5, ResourceLocation.fromNamespaceAndPath("noodlemod", "warp"));
             } else {
                 // remove post effect
                 VeilRenderSystem.renderer().getPostProcessingManager().remove(ResourceLocation.fromNamespaceAndPath("noodlemod", "warp"));
             }
 
-            if (event.getTo().getItem() == ModItems.FOGVISOR.get()) {
-                // add post effect
-                VeilRenderSystem.renderer().getPostProcessingManager().add(ResourceLocation.fromNamespaceAndPath("noodlemod", "fog"));
-            } else {
-                // remove post effect
-                VeilRenderSystem.renderer().getPostProcessingManager().remove(ResourceLocation.fromNamespaceAndPath("noodlemod", "fog"));
-            }
         }
     }
 }

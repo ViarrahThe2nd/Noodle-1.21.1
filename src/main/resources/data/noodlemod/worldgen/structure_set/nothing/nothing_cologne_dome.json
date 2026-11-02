@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "noodlemod:nothing/nothing_cologne_dome",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 800,
+    "separation": 500,
+    "salt": 624821
+  }
+}

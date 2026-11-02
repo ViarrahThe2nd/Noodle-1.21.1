@@ -1,0 +1,8 @@
+nothing_houses: salt: 734921
+F:\_Development\Noodlemod\src\main\resources\data\noodlemod\worldgen\structure_set\nothing\nothing_houses.json
+
+nothing_obelisk: salt: 132965
+F:\_Development\Noodlemod\src\main\resources\data\noodlemod\worldgen\structure_set\nothing\nothing_obelisk.json
+
+nothing_cologne_dome: salt: 624821
+F:\_Development\Noodlemod\src\main\resources\data\noodlemod\worldgen\structure_set\nothing\nothing_cologne_dome.json
