@@ -43,7 +43,7 @@ public class NothingDimFallEvent {
         player.teleportTo(
                 overworld,
                 player.getX(),
-                319.0,
+                749.0,
                 player.getZ(),
                 player.getYRot(),
                 player.getXRot()

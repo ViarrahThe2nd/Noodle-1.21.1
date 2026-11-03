@@ -3,6 +3,7 @@ package de.viarrah.noodle;
 import de.viarrah.noodle.block.ModBlocks;
 import de.viarrah.noodle.block.ModBlockEntities;
 import de.viarrah.noodle.component.ModDataComponents;
+import de.viarrah.noodle.dimension.ModChunkGenerators;
 import de.viarrah.noodle.item.ModCreativeModeTabs;
 import de.viarrah.noodle.item.ModItems;
 import de.viarrah.noodle.network.ModNetworking;
@@ -52,6 +53,8 @@ public class NoodleMod
         noodleEventBus.addListener(this::addCreative);
 
         noodleEventBus.addListener(ModNetworking::register);
+
+        ModChunkGenerators.GENERATORS.register(noodleEventBus);
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);

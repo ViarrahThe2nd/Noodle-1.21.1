@@ -1,7 +1,7 @@
-noodlemod:grayscale = 1 (lowest)
+noodlemod:grayscale = 100
 Location: noodle/VisorItem.java Line 25
 
-noodlemod:warp = 5
+noodlemod:warp = 500
 Location: noodle/VisorItem.java Line 33
 
 noodlemod:fog = 10000 (10x default)

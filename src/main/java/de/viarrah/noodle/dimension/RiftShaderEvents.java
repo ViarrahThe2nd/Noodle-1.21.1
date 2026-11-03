@@ -32,27 +32,36 @@ public class RiftShaderEvents {
         Minecraft minecraft = Minecraft.getInstance();
 
         if (minecraft.level == null || minecraft.player == null) {
-            lastDimensionLoc = null;
             return;
         }
 
         ResourceLocation currentDimension = minecraft.level.dimension().location();
+        String expectedPack = SHADERS_BY_DIM.get(currentDimension);
 
-        // Only reload once, not per tick
-        if (currentDimension.equals(lastDimensionLoc)) {
+        // Dimensions not mapped keep current shader
+        if (expectedPack == null) {
             return;
         }
 
-        lastDimensionLoc = currentDimension;
-
-        String shaderPackName = SHADERS_BY_DIM.get(currentDimension);
-        // leave unchanged for "current" dimension
-        if (shaderPackName == null) {
+        // Finish applying shader change, tick after closing menu correct settings
+        if (minecraft.screen != null) {
             return;
         }
 
-        applyShaderPackFor(shaderPackName);
+        String selectedPack = Iris.getIrisConfig().getShaderPackName().orElse("");
+        boolean shadersEnabled = Iris.getIrisConfig().areShadersEnabled();
 
+        boolean needsCorrection;
+        if(expectedPack.isBlank()) {
+            // blank value = shaders disabled
+            needsCorrection = shadersEnabled;
+        } else {
+            needsCorrection = !expectedPack.equals(selectedPack) || !shadersEnabled;
+        }
+
+        if (needsCorrection) {
+            applyShaderPackFor(expectedPack);
+        }
     }
 
     @SubscribeEvent
@@ -76,7 +85,8 @@ public class RiftShaderEvents {
 
     private static final Map<ResourceLocation, String> SHADERS_BY_DIM = Map.of(
             dimensionId("noodlemod", "rifts/nothing"), "Nothing_Kappa.zip",
-            dimensionId("minecraft", "overworld"), "Overworld_Hysteria.zip"
+            dimensionId("minecraft", "overworld"), "Overworld_Hysteria.zip",
+            dimensionId("noodlemod", "rifts/yellowhouses"), "Yellowhouses_Unbound.zip"
     );
 
     private static void applyShaderPackFor(String shaderPackName) {
