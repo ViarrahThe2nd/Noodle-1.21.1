@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "noodlemod:nothing/nothing_obelisk/nothing_obelisk_segment_2",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 300,
+    "separation": 150,
+    "salt": 132965
+  }
+}

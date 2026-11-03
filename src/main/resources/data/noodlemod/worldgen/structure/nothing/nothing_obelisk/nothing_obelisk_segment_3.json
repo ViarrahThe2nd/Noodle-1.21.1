@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:jigsaw",
+  "biomes": "minecraft:the_void",
+  "step": "surface_structures",
+  "terrain_adaptation": "none",
+  "spawn_overrides": {},
+  "start_pool": "noodlemod:nothing/nothing_obelisk_segment",
+  "size": 1,
+  "start_height": {
+    "absolute": 145
+  },
+  "use_expansion_hack": false,
+  "max_distance_from_center": 80
+}
